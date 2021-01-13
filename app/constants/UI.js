@@ -1,0 +1,15 @@
+export default {
+  FONT_SIZE_SMALL: 12,
+  FONT_SIZE_MEDIUM: 14,
+  FONT_SIZE_LARGE: 16,
+  BLUE: '#48a9f8',
+  GREY: '#d4d4d4',
+  PURPLE: '#7f5ef6',
+  YELLOW: '#f6bc41',
+  TOMATO: '#ec4969',
+  DARK_BLUE: '#ec4969',
+  GREEN: '#61c88d',
+  FONT_WEIGHT_LIGHT: 200,
+  FONT_WEIGHT_MEDIUM: 600,
+  FONT_WEIGHT_HEAVY: 800,
+};
