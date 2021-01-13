@@ -1,0 +1,18 @@
+export const PODCASTS = [
+  'Good Morning America',
+  'Air Balloons with Koen Bok',
+  'Market Analytics',
+  'The Venice Killer',
+  'Up All Night',
+  'Quiet Town of Tokyo',
+  'Bitcoin Bull Market',
+  'Bootstraping Your Ideas',
+  'Air Balloons with Jorn van Dijk',
+  "When We're Home",
+  'Why Diversity Matters',
+  'The Billion Dollar Startup',
+  'Building a Unicorn',
+  'Through the Walls',
+  'A Day in Istanbul',
+  'Right About Change',
+];
