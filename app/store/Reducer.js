@@ -1,24 +1,20 @@
-import { GET_PODCASTS } from './Types';
+import {GET_PODCASTS, ADD_PODCAST} from './Types';
 
 const initialState = {
-    podcasts: null
+  podcasts: null,
 };
 
-const reducer = (state = initialState, { type, payload }) => {
+const reducer = (state = initialState, {type, payload}) => {
+  switch (type) {
+    case GET_PODCASTS:
+      return {
+        ...state,
+        podcasts: payload,
+      };
 
-    switch (type) {
-
-        case GET_PODCASTS:
-            console.log(payload)
-
-            return {
-                ...state,
-                podcasts: payload
-            };
-
-        default:
-            return state;
-    }
+    default:
+      return state;
+  }
 };
 
 export default reducer;

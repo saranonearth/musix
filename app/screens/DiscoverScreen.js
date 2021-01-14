@@ -13,6 +13,7 @@ Icon.loadFont();
 
 export default function DiscoverScreen({navigation}) {
   const state = useSelector((state) => state);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
