@@ -5,10 +5,15 @@ import UI from '../constants/UI';
 
 Icon.loadFont();
 
-export default function BackButton({navigation}) {
+export default function BackButton({navigation, color}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.backButton} onPress={() => navigation.goBack(null)}>
+      <Text
+        style={[
+          styles.backButton,
+          color === 'white' ? styles.backButtonWhite : styles.backButtonGrey,
+        ]}
+        onPress={() => navigation.goBack(null)}>
         <Icon size={15} name="left" />
         &nbsp;Back
       </Text>
@@ -21,6 +26,11 @@ const styles = StyleSheet.create({
   backButton: {
     fontSize: UI.FONT_SIZE_MEDIUM,
     fontWeight: UI.FONT_WEIGHT_MEDIUM,
+  },
+  backButtonWhite: {
+    color: '#fff',
+  },
+  backButtonGrey: {
     color: UI.GREY,
   },
 });

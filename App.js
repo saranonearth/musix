@@ -14,68 +14,60 @@ import UI from './app/constants/UI';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 Icon.loadFont();
-const PlaylistStackNavigator = () => (
-  <Stack.Navigator
-    screenOptions={{
-      headerShown: false,
-    }}>
-    <Stack.Screen name="Playlist" component={PlaylistScreen} />
-    <Stack.Screen name="Player" component={PlayerScreen} />
-  </Stack.Navigator>
-);
 
-const DiscoverStackNavigator = () => (
-  <Stack.Navigator
-    screenOptions={{
-      headerShown: false,
-    }}>
-    <Stack.Screen name="Discover" component={DiscoverScreen} />
-    <Stack.Screen name="Player" component={PlayerScreen} />
-  </Stack.Navigator>
+const TabNav = () => (
+  <Tab.Navigator
+    tabBarOptions={{
+      activeTintColor: UI.DARK_GREY,
+      keyboardHidesTabBar: true,
+      labelStyle: {
+        fontSize: 10,
+        marginBottom: -5,
+        fontWeight: UI.FONT_WEIGHT_MEDIUM,
+      },
+    }}
+    initialRouteName="Discover">
+    <Tab.Screen
+      options={{
+        tabBarIcon: ({size, color}) => (
+          <Icon size={size} color={color} name="list" />
+        ),
+      }}
+      name="Playlist"
+      component={PlaylistScreen}
+    />
+    <Tab.Screen
+      options={{
+        tabBarIcon: ({size, color}) => (
+          <Icon size={size} color={color} name="compass-outline" />
+        ),
+      }}
+      name="Discover"
+      component={DiscoverScreen}
+    />
+    <Tab.Screen
+      options={{
+        tabBarIcon: ({size, color}) => (
+          <Icon size={size} color={color} name="person-outline" />
+        ),
+      }}
+      name="Profile"
+      component={ProfileScreen}
+    />
+  </Tab.Navigator>
 );
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        tabBarOptions={{
-          activeTintColor: UI.DARK_GREY,
-
-          labelStyle: {
-            fontSize: 10,
-            marginBottom: -5,
-            fontWeight: UI.FONT_WEIGHT_MEDIUM,
-          },
-        }}
-        initialRouteName="Discover">
-        <Tab.Screen
-          options={{
-            tabBarIcon: ({size, color}) => (
-              <Icon size={size} color={color} name="list" />
-            ),
-          }}
-          name="Playlist"
-          component={PlaylistStackNavigator}
-        />
-        <Tab.Screen
-          options={{
-            tabBarIcon: ({size, color}) => (
-              <Icon size={size} color={color} name="compass-outline" />
-            ),
-          }}
-          name="Discover"
-          component={DiscoverStackNavigator}
-        />
-        <Tab.Screen
-          options={{
-            tabBarIcon: ({size, color}) => (
-              <Icon size={size} color={color} name="person-outline" />
-            ),
-          }}
-          name="Profile"
-          component={ProfileScreen}
-        />
-      </Tab.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name="Discover" component={TabNav} />
+        <Stack.Screen name="Player" component={PlayerScreen} />
+        <Stack.Screen name="Playlist" component={PlaylistScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };

@@ -1,4 +1,4 @@
-const {GET_PODCASTS} = require('./Types');
+const {GET_PODCASTS, ADD_PODCAST} = require('./Types');
 import {PODCASTS} from '../data/index';
 
 //Faking API call

@@ -13,13 +13,13 @@ Icon.loadFont();
 
 export default function DiscoverScreen({navigation}) {
   const state = useSelector((state) => state);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getPodcasts());
   }, []);
 
-  console.log(state);
   return (
     <Screen>
       <View style={styles.container}>
