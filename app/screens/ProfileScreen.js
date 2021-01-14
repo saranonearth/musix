@@ -31,7 +31,7 @@ export default function ProfileScreen({navigation}) {
   return (
     <Screen>
       <View style={styles.contianer}>
-        <BackButton navigation={navigation} />
+        <BackButton navigation={navigation} color={'Grey'} />
 
         <View style={styles.userView}>
           <Image style={styles.avatar} source={Assets.Avatar} />

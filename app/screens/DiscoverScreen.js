@@ -20,7 +20,6 @@ export default function DiscoverScreen({navigation}) {
     dispatch(getPodcasts());
   }, []);
 
-  console.log(state);
   return (
     <Screen>
       <View style={styles.container}>
