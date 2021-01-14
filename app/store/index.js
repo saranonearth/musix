@@ -1,17 +1,15 @@
-import { createStore, combineReducers } from 'redux'
+import {createStore, combineReducers} from 'redux';
 
-import reducer from './Reducer'
+import reducer from './Reducer';
 
-import { applyMiddleware } from 'redux'
+import {applyMiddleware} from 'redux';
 
-import thunk from 'redux-thunk'
+import thunk from 'redux-thunk';
 
-const rootReducer = combineReducers({ gloabalState: reducer })
-
+const rootReducer = combineReducers({globalStore: reducer});
 
 const Store = () => {
-    return createStore(rootReducer, applyMiddleware(thunk))
-}
-
+  return createStore(rootReducer, applyMiddleware(thunk));
+};
 
 export default Store;

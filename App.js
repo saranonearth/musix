@@ -1,20 +1,19 @@
-import React, {useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import React from 'react';
 import {Button, Text, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import {getPodcasts} from './app/store/Actions';
 import DiscoverScreen from './app/screens/DiscoverScreen';
 import PlaylistScreen from './app/screens/PlaylistScreen';
 import ProfileScreen from './app/screens/ProfileScreen';
 import PlayerScreen from './app/screens/PlayerScreen';
+import UI from './app/constants/UI';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
-
-//Handling nested navigation. Is thi right line 18 to 52
+Icon.loadFont();
 const PlaylistStackNavigator = () => (
   <Stack.Navigator
     screenOptions={{
@@ -36,19 +35,46 @@ const DiscoverStackNavigator = () => (
 );
 
 const App = () => {
-  const state = useSelector((state) => state);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getPodcasts());
-  }, []);
-
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="Discover">
-        <Tab.Screen name="Playlist" component={PlaylistStackNavigator} />
-        <Tab.Screen name="Discover" component={DiscoverStackNavigator} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Navigator
+        tabBarOptions={{
+          activeTintColor: UI.DARK_GREY,
+
+          labelStyle: {
+            fontSize: 10,
+            marginBottom: -5,
+            fontWeight: UI.FONT_WEIGHT_MEDIUM,
+          },
+        }}
+        initialRouteName="Discover">
+        <Tab.Screen
+          options={{
+            tabBarIcon: ({size, color}) => (
+              <Icon size={size} color={color} name="list" />
+            ),
+          }}
+          name="Playlist"
+          component={PlaylistStackNavigator}
+        />
+        <Tab.Screen
+          options={{
+            tabBarIcon: ({size, color}) => (
+              <Icon size={size} color={color} name="compass-outline" />
+            ),
+          }}
+          name="Discover"
+          component={DiscoverStackNavigator}
+        />
+        <Tab.Screen
+          options={{
+            tabBarIcon: ({size, color}) => (
+              <Icon size={size} color={color} name="person-outline" />
+            ),
+          }}
+          name="Profile"
+          component={ProfileScreen}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
